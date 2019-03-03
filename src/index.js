@@ -12,17 +12,17 @@ module.exports = function getZerosCount(number, base) {
   return Math.min(...powersOfFactors);
 }
 
-  function findPrimeFactors(number) {
-    const primeFactors = new Map();
+function findPrimeFactors(number) {
+  const primeFactors = new Map();
 
-    // choosing starting value for the loop
-    // depending on wether number is even or odd
-    let i = number % 2 === 0 ? 2 : 3;
-    for (i; i <= number; i++) {
-      while(number % i === 0) {
-        primeFactors.set(i, primeFactors.get(i) + 1 || 1);
-        number = number / i;
-      }
+  // choosing starting value for the loop
+  // depending on wether number is even or odd
+  let i = number % 2 === 0 ? 2 : 3;
+  for (i; i <= number; i++) {
+    while(number % i === 0) {
+      primeFactors.set(i, primeFactors.get(i) + 1 || 1);
+      number = number / i;
     }
-    return primeFactors;
   }
+  return primeFactors;
+}
